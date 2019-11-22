@@ -2,6 +2,9 @@ import { Doctor } from './doctor.js';
 import $ from 'jquery';
 
 $(document).ready(function() {
-    let doc = new Doctor;
-    doc.search();
+    $('form#user-info').submit(function(event) {
+        event.preventDefault();
+        let doc = new Doctor;
+        doc.search($('input#lookup').val());
+    });
 });
