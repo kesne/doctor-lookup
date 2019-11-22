@@ -1,4 +1,14 @@
 export class Doctor {
+    constructor(firstName, lastName, title, photo, practiceName, street1, street2, city, state, zip) {
+        this.name = `${firstName} ${lastName}, ${title}`;
+        this.photo = photo;
+        this.practiceName = practiceName;
+        this.practiceAddress =
+            `${street1} ${street2}
+            ${city}, ${state} ${zip}`;
+        this.website = website;
+    }
+
     async search(searchTerm){
         let doctors = [];
 
@@ -16,3 +26,20 @@ export class Doctor {
         }
     }
 }
+
+const docInfo = {}
+// jsonResponse.data[i].profile.first_name
+// jsonResponse.data[i].profile.last_name
+// jsonResponse.data[i].profile.title
+//`${jsonResponse.data[i].profile.first_name} ${jsonResponse.data[i].profile.last_name}, ${}
+// jsonResponse.data[i].profile.image_url
+//
+// jsonResponse.data[i].practices[0].name;
+// jsonResponse.data[i].practices[0].visit_address.street
+// jsonResponse.data[i].practices[0].visit_address.street2
+// jsonResponse.data[i].practices[0].visit_address.city
+// jsonResponse.data[i].practices[0].visit_address.state
+// jsonResponse.data[i].practices[0].visit_address.zip
+// jsonResponse.data[i].practices[0].within_search_area
+//
+// jsonResponse.data[i].practices[0].website;
