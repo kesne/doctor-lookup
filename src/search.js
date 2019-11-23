@@ -24,6 +24,7 @@ function cullSearchData(searchData) {
                 searchResult.profile.last_name,
                 searchResult.profile.title,
                 searchResult.profile.image_url,
+                searchResult.practices[searchResult.practices.length - 1].accepts_new_patients,
                 searchResult.practices[searchResult.practices.length - 1].name,
                 searchResult.practices[searchResult.practices.length - 1].visit_address.street,
                 searchResult.practices[searchResult.practices.length - 1].visit_address.street2,
