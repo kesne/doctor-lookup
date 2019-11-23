@@ -6,17 +6,22 @@
 </head>
 <body>
     <h1>Doctor Lookup!</h1>
-    <div id="doctor-shown">
-        <form id='user-info'>
-            <label for="lookup">What's ailing you?</label>
-            <input type="text" name="lookup" id='lookup'>
+    <div id="main-disp">
+        <form id='user-info' class='box'>
+            <label for="lookup">What's ailing you?
+                <input type="text" name="lookup" id='lookup'>
+            </label>
             <button type="submit" name="button">Submit</button>
         </form>
 
-        <div id='doctor-image'>
-            <img alt=''>
+        <div id='doctor-photo' class='box'>
+            <img id='doc-photo' alt='Doctor Photo'>
         </div>
-        <div id='doctor-info'>name</div>
+        <div id='doctor-info' class='box'>
+            <h3 id='doc-name'></h3>
+            <h4 id='doc-field'></h4>
+            <p></p>
+        </div>
     </div>
 </body>
 </html>

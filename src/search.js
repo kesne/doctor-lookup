@@ -30,8 +30,8 @@ function cullSearchData(searchData) {
                 searchResult.practices[0].visit_address.city,
                 searchResult.practices[0].visit_address.state,
                 searchResult.practices[0].visit_address.zip,
-                searchResult.practices[0].within_search_area
-                searchResult.practices[0].website;
+                searchResult.practices[0].within_search_area,
+                searchResult.practices[0].website
             )
         );
     });
