@@ -24,14 +24,14 @@ function cullSearchData(searchData) {
                 searchResult.profile.last_name,
                 searchResult.profile.title,
                 searchResult.profile.image_url,
-                searchResult.practices[0].name,
-                searchResult.practices[0].visit_address.street,
-                searchResult.practices[0].visit_address.street2,
-                searchResult.practices[0].visit_address.city,
-                searchResult.practices[0].visit_address.state,
-                searchResult.practices[0].visit_address.zip,
-                searchResult.practices[0].within_search_area,
-                searchResult.practices[0].website
+                searchResult.practices[searchResult.practices.length - 1].name,
+                searchResult.practices[searchResult.practices.length - 1].visit_address.street,
+                searchResult.practices[searchResult.practices.length - 1].visit_address.street2,
+                searchResult.practices[searchResult.practices.length - 1].visit_address.city,
+                searchResult.practices[searchResult.practices.length - 1].visit_address.state,
+                searchResult.practices[searchResult.practices.length - 1].visit_address.zip,
+                searchResult.practices[searchResult.practices.length - 1].within_search_area,
+                searchResult.practices[searchResult.practices.length - 1].website
             )
         );
     });
