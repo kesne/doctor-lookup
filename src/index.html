@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang='en' dir='ltr'>
 <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title>Doctor Lookup</title>
 </head>
 <body>
     <h1>Doctor Lookup!</h1>
-    <div id="main-disp">
+    <div id='main-disp'>
+        
         <form id='user-info' class='box'>
-            <label for="lookup">What's ailing you?
-                <input type="text" name="lookup" id='lookup'>
-            </label>
-            <button type="submit" name="button">Submit</button>
+            <label id='search-ailment' for='ail-search'><input type='radio' name='search-type' value='ailment' id='ail-search'>Search by Ailment</label>
+            <label id='search-doctor' for='doc-search'><input type='radio' name='search-type' value='doctor' id='doc-search'>Search by Doctor</label>
+            <div id='search-field'>
+                <label for='lookup'>What's ailing you?
+                    <input type='text' name='lookup' id='lookup'>
+                </label>
+                <button type='submit' name='button'>Submit</button>
+            </div>
         </form>
 
-        <div id='doctor-photo' class='box'>
-            <img id='doc-photo' alt='Doctor Photo'>
-        </div>
         <div id='doctor-info' class='box'>
-            <h3 id='doc-name'></h3>
-            <h4 id='doc-field'></h4>
-            <p></p>
+            <img id='doc-photo' alt='Doctor Photo'>
+            <div id="doc-details">
+                <h3 id='doc-name'></h3>
+                <h4 id='doc-field'></h4>
+                <p></p>
+            </div>
+            <div id="doc-bio">
+            </div>
         </div>
+
     </div>
 </body>
 </html>
