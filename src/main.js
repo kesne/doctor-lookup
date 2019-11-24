@@ -3,18 +3,21 @@ import $ from 'jquery';
 import './styles.css';
 
 $(document).ready(function() {
-    let doc;
     $('form#user-info').submit(function(event) {
         event.preventDefault();
 
-        (async () => {
-            doc = await searchBetterDoctor($('input#lookup').val());
-            $('#doc-photo').attr('src', doc[0].photo);
-            $('#doc-photo').attr('title', doc[0].name);
-            $('#doc-name').text(doc[0].name);
-        })();
+        searchAndDeploy($('input:radio[name=search-type]:checked').val(), $('input#search-text').val());
 
     });
 
 
 });
+
+async function searchAndDeploy(queryType, queryText) {
+    const doctors = await searchBetterDoctor(queryType, queryText);
+    
+    $('#doc-photo').attr('src', doctors[0].photo);
+    $('#doc-photo').attr('title', doctors[0].name);
+    $('#doc-name').text(doctors[0].name);
+    console.log(doctors);
+}

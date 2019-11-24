@@ -7,13 +7,13 @@
 <body>
     <h1>Doctor Lookup!</h1>
     <div id='main-disp'>
-        
+
         <form id='user-info' class='box'>
-            <label id='search-ailment' for='ail-search'><input type='radio' name='search-type' value='ailment' id='ail-search'>Search by Ailment</label>
-            <label id='search-doctor' for='doc-search'><input type='radio' name='search-type' value='doctor' id='doc-search'>Search by Doctor</label>
+            <label id='search-ailment'><input type='radio' name='search-type' value='query' checked>Search by Ailment</label>
+            <label id='search-doctor'><input type='radio' name='search-type' value='name'>Search by Doctor</label>
             <div id='search-field'>
                 <label for='lookup'>What's ailing you?
-                    <input type='text' name='lookup' id='lookup'>
+                    <input type='text' name='lookup' id='search-text'>
                 </label>
                 <button type='submit' name='button'>Submit</button>
             </div>
@@ -26,7 +26,7 @@
                 <h4 id='doc-field'></h4>
                 <p></p>
             </div>
-            <div id="doc-bio">
+            <div id='doc-bio'>
             </div>
         </div>
 
