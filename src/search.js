@@ -6,7 +6,7 @@ export async function searchBetterDoctor(queryType, queryText) {
 
         if (response.ok) {
             const jsonResponse = await response.json();
-            return cullSearchData(jsonResponse.data)
+            return cullSearchData(jsonResponse.data);
         }
         else throw new Error(response.status);
     }
@@ -18,28 +18,24 @@ export async function searchBetterDoctor(queryType, queryText) {
 
 function cullSearchData(searchData) {
     if (searchData.length === 0) return [];
-    let doctors = [];
-    searchData.forEach((searchResult) => {
-        doctors.push(
-            new Doctor(
-                searchResult.profile.first_name,
-                searchResult.profile.last_name,
-                searchResult.profile.title,
-                (searchResult.specialties.length > 0) ? searchResult.specialties[0].actor : 'Unknown',
-                searchResult.profile.bio,
-                searchResult.profile.image_url,
-                searchResult.practices[searchResult.practices.length - 1].accepts_new_patients,
-                searchResult.practices[searchResult.practices.length - 1].name,
-                searchResult.practices[searchResult.practices.length - 1].visit_address.street,
-                searchResult.practices[searchResult.practices.length - 1].visit_address.street2,
-                searchResult.practices[searchResult.practices.length - 1].visit_address.city,
-                searchResult.practices[searchResult.practices.length - 1].visit_address.state,
-                searchResult.practices[searchResult.practices.length - 1].visit_address.zip,
-                searchResult.practices[searchResult.practices.length - 1].within_search_area,
-                (searchResult.practices[searchResult.practices.length - 1].website) ? searchResult.practices[searchResult.practices.length - 1].website : 'Website not available.',
-                searchResult.practices[searchResult.practices.length - 1].phones[0].number
-            )
-        );
+    return searchData.map((searchResult) => {
+        return new Doctor(
+            searchResult.profile.first_name,
+            searchResult.profile.last_name,
+            searchResult.profile.title,
+            (searchResult.specialties.length > 0) ? searchResult.specialties[0].actor : 'Unknown',
+            searchResult.profile.bio,
+            searchResult.profile.image_url,
+            searchResult.practices[searchResult.practices.length - 1].accepts_new_patients,
+            searchResult.practices[searchResult.practices.length - 1].name,
+            searchResult.practices[searchResult.practices.length - 1].visit_address.street,
+            searchResult.practices[searchResult.practices.length - 1].visit_address.street2,
+            searchResult.practices[searchResult.practices.length - 1].visit_address.city,
+            searchResult.practices[searchResult.practices.length - 1].visit_address.state,
+            searchResult.practices[searchResult.practices.length - 1].visit_address.zip,
+            searchResult.practices[searchResult.practices.length - 1].within_search_area,
+            (searchResult.practices[searchResult.practices.length - 1].website) ? searchResult.practices[searchResult.practices.length - 1].website : 'Website not available.',
+            searchResult.practices[searchResult.practices.length - 1].phones[0].number
+        )
     });
-    return doctors;
 }
