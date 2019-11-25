@@ -9,10 +9,8 @@ export class Doctor {
 
         this.takesNewPatients = takesNewPatients;
         this.practiceName = practiceName;
-        this.practiceAddress = (
-            `${street1}${(street2) ? ` ${street2}` : ''}\n${city}, ${state} ${zip}`);
-        this.practiceCity = city;
-        this.practiceState = state;
+        this.addressLine1 = `${street1}${(street2) ? ` ${street2}` : ''}`;
+        this.addressLine2 = `${city}, ${state} ${zip}`
 
         this.isWithinRange = isWithinRange;
         this.website = website;
