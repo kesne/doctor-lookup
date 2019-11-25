@@ -5,7 +5,7 @@
     <title>Doctor Lookup</title>
 </head>
 <body>
-    <h1>Doctor Lookup!</h1>
+    <h1 id='header'>Doctor Lookup!</h1>
     <div id='main-disp'>
 
         <form id='user-info' class='box'>
@@ -17,6 +17,8 @@
                 </label>
                 <button type='submit' name='button'>Submit</button>
             </div>
+            <table id='other-results'>
+            </table>
         </form>
 
         <div id='doctor-info' class='box'>
@@ -27,8 +29,8 @@
                 <h3 id='doc-name'></h3>
                 <h4 id='doc-field'></h4>
                 <p id='doc-takes-new'></p>
-                <p id='practice-address1'>ah</p>
-                <p id='practice-address2'>ah</p>
+                <p id='practice-address1'></p>
+                <p id='practice-address2'></p>
                 <p id='practice-number'></p>
                 <p id='practice-web'></p>
             </div>
@@ -38,5 +40,6 @@
         </div>
 
     </div>
+
 </body>
 </html>

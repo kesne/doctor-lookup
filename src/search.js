@@ -6,17 +6,18 @@ export async function searchBetterDoctor(queryType, queryText) {
 
         if (response.ok) {
             const jsonResponse = await response.json();
-            console.log(jsonResponse);
             return cullSearchData(jsonResponse.data)
         }
         else throw new Error(response.status);
     }
     catch (error) {
         console.error(`BetterDoctor API: ${error}`);
+        return error;
     }
 }
 
 function cullSearchData(searchData) {
+    if (searchData.length === 0) return [];
     let doctors = [];
     searchData.forEach((searchResult) => {
         doctors.push(
@@ -24,7 +25,7 @@ function cullSearchData(searchData) {
                 searchResult.profile.first_name,
                 searchResult.profile.last_name,
                 searchResult.profile.title,
-                searchResult.specialties[0].actor,
+                (searchResult.specialties.length > 0) ? searchResult.specialties[0].actor : 'Unknown',
                 searchResult.profile.bio,
                 searchResult.profile.image_url,
                 searchResult.practices[searchResult.practices.length - 1].accepts_new_patients,
@@ -35,7 +36,7 @@ function cullSearchData(searchData) {
                 searchResult.practices[searchResult.practices.length - 1].visit_address.state,
                 searchResult.practices[searchResult.practices.length - 1].visit_address.zip,
                 searchResult.practices[searchResult.practices.length - 1].within_search_area,
-                searchResult.practices[searchResult.practices.length - 1].website,
+                (searchResult.practices[searchResult.practices.length - 1].website) ? searchResult.practices[searchResult.practices.length - 1].website : 'Website not available.',
                 searchResult.practices[searchResult.practices.length - 1].phones[0].number
             )
         );
