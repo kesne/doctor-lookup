@@ -6,6 +6,7 @@ export async function searchBetterDoctor(queryType, queryText) {
 
         if (response.ok) {
             const jsonResponse = await response.json();
+            console.log(jsonResponse);
             return cullSearchData(jsonResponse.data)
         }
         else throw new Error(response.status);
@@ -23,6 +24,8 @@ function cullSearchData(searchData) {
                 searchResult.profile.first_name,
                 searchResult.profile.last_name,
                 searchResult.profile.title,
+                searchResult.specialties[0].actor,
+                searchResult.profile.bio,
                 searchResult.profile.image_url,
                 searchResult.practices[searchResult.practices.length - 1].accepts_new_patients,
                 searchResult.practices[searchResult.practices.length - 1].name,
@@ -32,7 +35,8 @@ function cullSearchData(searchData) {
                 searchResult.practices[searchResult.practices.length - 1].visit_address.state,
                 searchResult.practices[searchResult.practices.length - 1].visit_address.zip,
                 searchResult.practices[searchResult.practices.length - 1].within_search_area,
-                searchResult.practices[searchResult.practices.length - 1].website
+                searchResult.practices[searchResult.practices.length - 1].website,
+                searchResult.practices[searchResult.practices.length - 1].phones[0].number
             )
         );
     });
