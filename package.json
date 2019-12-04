@@ -30,6 +30,8 @@
         "webpack-dev-server": "^3.8.0"
     },
     "dependencies": {
-        "jquery": "^3.4.1"
+        "jquery": "^3.4.1",
+        "svelte": "^3.16.0",
+        "svelte-loader": "^2.13.6"
     }
 }
